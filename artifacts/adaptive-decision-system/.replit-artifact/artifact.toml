@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Adaptive Decision System"
+description = "A polished enterprise frontend shell for an adaptive autonomous decision system, with responsive navigation, monitoring-ready routes, and live backend health status."
+version = "1.0.0"
+id = "artifacts/adaptive-decision-system"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/", "/api", "/ws/events" ]
+localPort = 21640
+
+[services.development]
+run = "pnpm --filter @workspace/adaptive-decision-system run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/adaptive-decision-system", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/adaptive-decision-system/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21640"
+BASE_PATH = "/"

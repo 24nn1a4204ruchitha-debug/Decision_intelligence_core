@@ -1,0 +1,173 @@
+Continue from the existing frontend. Do NOT rebuild the project or Dashboard.
+
+IMPORTANT:
+FRONTEND ONLY.
+
+Do not:
+- modify backend files
+- create FastAPI
+- create database
+- create Supabase
+- create ML code
+- create backend APIs
+- invent API endpoints
+
+The existing frontend already contains:
+- application shell
+- sidebar
+- navbar
+- routing
+- Dashboard
+- Data Ingestion
+- Predictions
+- Anomalies
+- Decisions
+- dark mode
+- responsive design
+- reusable UI components
+
+Reuse the existing design system and components.
+
+Now complete these pages:
+
+1. LIVE MONITORING
+2. HUMAN REVIEW
+3. ANALYTICS
+4. AUDIT TRAIL
+5. SETTINGS
+
+--------------------------------
+LIVE MONITORING
+--------------------------------
+
+Create an AI operations center.
+
+Show:
+- system health
+- live event stream
+- recent decisions
+- anomaly alerts
+- confidence changes
+- risk distribution
+- confidence distribution
+- latest activity
+
+Create a reusable LiveEventFeed component.
+
+Prepare the page for WebSocket integration.
+
+If WebSocket is unavailable, show:
+"Real-time connection unavailable"
+
+Do not create fake backend functionality.
+
+--------------------------------
+HUMAN REVIEW
+--------------------------------
+
+Create a Human-in-the-Loop page.
+
+Show pending decisions requiring human intervention.
+
+Each review should show:
+- original data
+- prediction
+- confidence
+- uncertainty
+- anomaly
+- risk
+- AI explanation
+- recommended action
+
+Actions:
+- Approve
+- Reject
+- Modify
+
+Create:
+ReviewCard
+ReviewDetail
+ReviewActionModal
+
+Use confirmation dialogs.
+
+--------------------------------
+ANALYTICS
+--------------------------------
+
+Create an enterprise analytics dashboard.
+
+Use Recharts.
+
+Charts:
+- Decision Volume
+- Confidence Over Time
+- Anomaly Rate
+- Data Quality
+- Human Intervention Rate
+- Prediction Accuracy
+- Risk Distribution
+- Model Performance
+
+If real data is unavailable, show a professional empty state.
+
+Do not present fake data as real backend data.
+
+--------------------------------
+AUDIT TRAIL
+--------------------------------
+
+Create an enterprise audit interface.
+
+Show:
+- Event ID
+- User/System
+- Input Reference
+- Prediction
+- Confidence
+- Anomaly Score
+- Decision
+- Explanation
+- Human Intervention
+- Final Outcome
+- Timestamp
+
+Add:
+- search
+- filters
+- detail drawer
+- audit timeline
+- pagination UI if appropriate
+
+--------------------------------
+SETTINGS
+--------------------------------
+
+Create:
+- Appearance
+- Dark Mode
+- Notifications
+- Connection Status
+- Account
+- About
+
+Do not create unsupported backend settings.
+
+--------------------------------
+
+Requirements:
+
+- Reuse existing components.
+- Do not duplicate components.
+- Preserve current Dashboard.
+- Preserve current design language.
+- Preserve dark mode.
+- Preserve responsive behavior.
+- Use Framer Motion for subtle animations.
+- Use Lucide icons.
+- Use accessible controls.
+- Add loading, empty and error states.
+
+After implementation run the frontend and fix frontend errors only.
+
+Do not modify the backend.

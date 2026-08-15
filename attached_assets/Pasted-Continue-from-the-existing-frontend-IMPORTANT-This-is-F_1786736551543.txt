@@ -1,0 +1,314 @@
+Continue from the existing frontend.
+
+IMPORTANT:
+This is FRONTEND ONLY.
+
+Do NOT create, modify, replace, or run changes against the backend.
+
+The actual FastAPI backend is being developed by another team member based on the provided backend specification.
+
+Use the backend specification as the EXPECTED API CONTRACT.
+
+Do NOT invent different endpoint names.
+
+Do NOT create fake backend APIs.
+
+Do NOT create Supabase.
+
+Do NOT create a new backend.
+
+Keep all API integration inside the frontend API/service layer so it can be adjusted easily when the actual backend implementation is connected.
+
+EXPECTED BACKEND API CONTRACT:
+
+AUTH:
+POST /api/auth/register
+POST /api/auth/login
+GET /api/auth/me
+
+DATA INGESTION:
+POST /api/data/text
+POST /api/data/json
+POST /api/data/csv
+POST /api/data/image
+POST /api/data/sensor
+POST /api/data/event
+POST /api/data/simulate-degradation
+
+PREDICTION:
+POST /api/predict
+
+ANOMALY:
+POST /api/anomaly/detect
+GET /api/anomalies
+GET /api/anomalies/{id}
+
+DECISION:
+POST /api/decision/evaluate
+
+HUMAN REVIEW:
+GET /api/reviews/pending
+POST /api/reviews/{decision_id}/approve
+POST /api/reviews/{decision_id}/reject
+POST /api/reviews/{decision_id}/modify
+
+FEEDBACK:
+POST /api/feedback
+
+MODEL:
+GET /api/model/performance
+POST /api/model/retrain
+
+DASHBOARD:
+GET /api/dashboard/overview
+GET /api/dashboard/recent-decisions
+GET /api/dashboard/recent-anomalies
+GET /api/dashboard/system-health
+
+AUDIT:
+GET /api/audit/{decision_id}
+
+DEMO:
+POST /api/demo/start
+POST /api/demo/stop
+GET /api/demo/status
+
+REAL-TIME:
+WS /ws/events
+
+Now continue the existing frontend.
+
+DO NOT rebuild the Dashboard.
+
+DO NOT rebuild the existing layout.
+
+DO NOT remove existing components.
+
+Reuse the current:
+- sidebar
+- navbar
+- routing
+- theme
+- cards
+- badges
+- charts
+- drawers
+- loading states
+- error states
+
+Build and complete these pages:
+
+1. Live Monitoring
+2. Human Review
+3. Analytics
+4. Audit Trail
+5. Settings
+
+Also improve the existing:
+
+6. Data Ingestion
+7. Predictions
+8. Anomalies
+9. Decisions
+
+Create a centralized frontend API layer:
+
+src/api/
+
+For example:
+
+client.ts
+auth.ts
+dashboard.ts
+ingestion.ts
+predictions.ts
+anomalies.ts
+decisions.ts
+reviews.ts
+feedback.ts
+analytics.ts
+audit.ts
+demo.ts
+websocket.ts
+
+Do not hardcode backend URLs.
+
+Use:
+
+VITE_API_URL
+VITE_WS_URL
+
+Create TypeScript interfaces/types for the expected API request and response structures based on the provided backend specification.
+
+IMPORTANT:
+Do not pretend API calls succeeded.
+
+If the actual backend is not currently reachable:
+- show loading state
+- show connection error
+- show empty state
+- keep the UI functional
+- do not fabricate successful API responses
+
+For WebSocket:
+connect to /ws/events when VITE_WS_URL is configured.
+
+Support events such as:
+- new data received
+- anomaly detected
+- prediction generated
+- decision generated
+- confidence changed
+- human review requested
+- human review completed
+
+Do not crash when WebSocket is unavailable.
+
+------------------------------------------------
+
+HUMAN REVIEW PAGE
+
+Create a premium Human-in-the-Loop interface.
+
+Show:
+- pending decisions
+- original data
+- prediction
+- confidence
+- anomaly
+- risk
+- explanation
+- recommended action
+
+Actions:
+Approve
+Reject
+Modify
+
+Use confirmation dialogs.
+
+------------------------------------------------
+
+LIVE MONITORING
+
+Create:
+- live event feed
+- system health
+- active decisions
+- anomaly alerts
+- confidence changes
+- risk distribution
+- confidence distribution
+
+Use Recharts.
+
+------------------------------------------------
+
+ANALYTICS
+
+Create:
+- decision volume
+- confidence over time
+- anomaly rate
+- data quality
+- human intervention rate
+- prediction accuracy
+- false positive rate
+- false negative rate
+- human override rate
+
+Use Recharts.
+
+If data is unavailable, show a professional empty state.
+
+------------------------------------------------
+
+AUDIT TRAIL
+
+Create:
+- audit table
+- search
+- filters
+- decision detail drawer
+- audit timeline
+
+Display:
+event ID
+user/system
+input reference
+prediction
+confidence
+anomaly score
+decision
+explanation
+human intervention
+final outcome
+timestamp
+
+------------------------------------------------
+
+RESILIENCE / HARD MODE
+
+Add a polished Resilience Test component using:
+
+POST /api/data/simulate-degradation
+
+Show:
+- percentage missing
+- percentage corrupted
+- affected fields
+- system status
+- fallback strategy
+
+Visually communicate:
+
+"System continues operating under degraded information, while confidence decreases and human oversight can be requested."
+
+------------------------------------------------
+
+DEMO CONTROL
+
+Add a Demo Control component using:
+
+POST /api/demo/start
+POST /api/demo/stop
+GET /api/demo/status
+
+Show:
+- simulator status
+- latest event
+- generated events
+- current scenario
+
+------------------------------------------------
+
+CORE PRODUCT MESSAGE
+
+The UI should make this obvious:
+
+DATA
+→ PREDICTION
+→ ANOMALY
+→ CONFIDENCE
+→ RELIABILITY
+→ DECISION
+→ HUMAN REVIEW
+→ FEEDBACK
+→ ADAPTATION
+
+Main message:
+
+"The AI doesn't just make decisions.
+It knows when it should NOT trust itself."
+
+Finally:
+
+- preserve the existing design
+- preserve responsive behavior
+- preserve dark mode
+- use reusable components
+- do not duplicate components
+- do not modify backend
+- do not invent APIs
+- run the frontend build
+- fix frontend errors only

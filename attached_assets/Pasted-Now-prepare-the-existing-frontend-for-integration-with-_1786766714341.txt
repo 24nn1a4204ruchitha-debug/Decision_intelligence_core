@@ -1,0 +1,162 @@
+Now prepare the existing frontend for integration with my team's FastAPI backend.
+
+FRONTEND ONLY.
+
+Do NOT modify or create backend code.
+
+The following is the EXPECTED backend API contract from our project specification.
+
+Do not invent different endpoints.
+
+--------------------------------
+AUTH
+--------------------------------
+
+POST /api/auth/register
+POST /api/auth/login
+GET /api/auth/me
+
+--------------------------------
+DATA INGESTION
+--------------------------------
+
+POST /api/data/text
+POST /api/data/json
+POST /api/data/csv
+POST /api/data/image
+POST /api/data/sensor
+POST /api/data/event
+POST /api/data/simulate-degradation
+
+--------------------------------
+PREDICTION
+--------------------------------
+
+POST /api/predict
+
+--------------------------------
+ANOMALY
+--------------------------------
+
+POST /api/anomaly/detect
+GET /api/anomalies
+GET /api/anomalies/{id}
+
+--------------------------------
+DECISION
+--------------------------------
+
+POST /api/decision/evaluate
+
+--------------------------------
+HUMAN REVIEW
+--------------------------------
+
+GET /api/reviews/pending
+POST /api/reviews/{decision_id}/approve
+POST /api/reviews/{decision_id}/reject
+POST /api/reviews/{decision_id}/modify
+
+--------------------------------
+FEEDBACK
+--------------------------------
+
+POST /api/feedback
+
+--------------------------------
+MODEL
+--------------------------------
+
+GET /api/model/performance
+POST /api/model/retrain
+
+--------------------------------
+DASHBOARD
+--------------------------------
+
+GET /api/dashboard/overview
+GET /api/dashboard/recent-decisions
+GET /api/dashboard/recent-anomalies
+GET /api/dashboard/system-health
+
+--------------------------------
+AUDIT
+--------------------------------
+
+GET /api/audit/{decision_id}
+
+--------------------------------
+DEMO
+--------------------------------
+
+POST /api/demo/start
+POST /api/demo/stop
+GET /api/demo/status
+
+--------------------------------
+WEBSOCKET
+--------------------------------
+
+WS /ws/events
+
+--------------------------------
+
+Create a clean frontend API layer:
+
+src/api/
+
+client.ts
+auth.ts
+dashboard.ts
+ingestion.ts
+predictions.ts
+anomalies.ts
+decisions.ts
+reviews.ts
+feedback.ts
+analytics.ts
+audit.ts
+demo.ts
+websocket.ts
+
+Create TypeScript types for request and response objects based on the project specification.
+
+Use:
+
+VITE_API_URL
+
+and:
+
+VITE_WS_URL
+
+Do not hardcode URLs.
+
+IMPORTANT:
+
+The actual FastAPI backend has not yet been provided in this Replit workspace.
+
+Therefore:
+
+- Do NOT claim these APIs are currently working.
+- Do NOT create fake successful responses.
+- Do NOT create a fake backend.
+- Keep API integration clean and replaceable.
+- Show proper loading/error/empty states when APIs are unavailable.
+
+Update the existing frontend pages to use the centralized API layer instead of putting fetch logic directly inside components.
+
+Connect where appropriate:
+
+Dashboard
+Data Ingestion
+Predictions
+Anomalies
+Decisions
+Human Review
+Analytics
+Audit
+Demo
+
+Do not break the existing UI.
+
+Do not modify backend files.
