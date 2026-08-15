@@ -36,7 +36,7 @@ Hackathon Scoring Rubric Alignment
 
 1. Executive Summary & Problem Statement
 
-🎯 Problem Statement
+ Problem Statement
 
 In complex, high-stakes, and rapidly changing operational environments (such as industrial automation, smart infrastructure, aerospace, energy grids, and healthcare), autonomous systems must make reliable decisions under severe uncertainty, noisy/missing sensor streams, and unpredictable anomaly spikes.
 
@@ -46,7 +46,7 @@ Blind Overconfidence: Making high-risk autonomous actions despite corrupted or o
 
 False Alarm Gridlock: Triggering excessive human escalations for minor noise, overwhelming operators.
 
-💡 The Solution: Astra Adaptive Decision Intelligence Platform
+ The Solution: Astra Adaptive Decision Intelligence Platform
 
 Astra is a production-grade, full-stack AI Decision Intelligence platform that bridges machine autonomy and human oversight:
 
@@ -247,7 +247,7 @@ Recommended Next Actions: Concrete operational instructions for operators or aut
 
 5. Complete REST API & WebSocket Reference
 
-🌐 System & Health Probes
+System & Health Probes
 
 Method
 
